@@ -10,15 +10,15 @@ app.use(express.static('public'));
 app.use('/',pagesRoutes);
 
 app.get('/',(req,res)=>{
-    res.redirect('/pages1');
+    res.redirect('/principal');
 });
 
 app.get('/',(req,res)=>{
-    res.redirect('/pages2');
+    res.redirect('/generador');
 });
 
 app.get('/',(req,res)=>{
-    res.redirect('/pages3');
+    res.redirect('/calculadora');
 });
 
 app.listen(port, ()=>{

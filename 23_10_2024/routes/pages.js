@@ -3,16 +3,16 @@ const path = require("path");
 
 const router = express.Router();
 
-router.get('/pages1', (req,res)=>{
-    res.sendFile(path.join(__dirname,'../public','/pages1.html'))
+router.get('/principal', (req,res)=>{
+    res.sendFile(path.join(__dirname,'../public','/principal.html'))
 });
 
-router.get('/pages2', (req,res)=>{
-    res.sendFile(path.join(__dirname,'../public','/pages2.html'))
+router.get('/generador', (req,res)=>{
+    res.sendFile(path.join(__dirname,'../public','/generador.html'))
 });
 
-router.get('/pages3', (req,res)=>{
-    res.sendFile(path.join(__dirname,'../public','/pages3.html'))
+router.get('/calculadora', (req,res)=>{
+    res.sendFile(path.join(__dirname,'../public','/calculadora.html'))
 });
 
 
