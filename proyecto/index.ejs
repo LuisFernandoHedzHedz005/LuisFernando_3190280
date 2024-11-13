@@ -1,0 +1,20 @@
+<h1>Listar ususario</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>correo</th>
+        <th>Acciones</th>
+    </tr>
+    <% users.forEach(user =>{ %>
+        <tr>
+            <td><%= user.id%></td>
+            <td><%= user.name%></td>
+            <td><%= user.email%></td>
+            <td>
+                <a href="/edit/<%= user.id%>">EDITAR</a>
+                <a href="/delete/<%= user.id%>">ACTUALIZAR</a>
+            </td>
+        </tr>
+    < % }); %>
+</table>
