@@ -52,9 +52,20 @@ const editarCelular =async (id, marca, modelo, color, precio, capacidad_almacena
     }
 };
 
+const eliminarCelular = async (id) => {
+    try {
+        const sql = 'DELETE FROM celulares WHERE id=?';
+        return await pool.sqlquery(sql, [id]);
+    } catch (err) {
+        console.error('Error al eliminar el celular:', err);
+        throw err;
+    }
+};
+
 module.exports = {
     agregarCelular,
     getCelulares,
     getCelularesId,
-    editarCelular
+    editarCelular,
+    eliminarCelular
 }

@@ -7,7 +7,7 @@
     <title>CRUD sobre celulares</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styleeliminarid.css">
 </head>
 
 <body>
@@ -18,41 +18,13 @@
     </nav>
 
     <main>
-        <h3 class="center-align">Lista de celulares</h3>
-        <table class="highlight responsive-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Color</th>
-                    <th>Precio</th>
-                    <th>Capacidad de almacenamiento</th>
-                    <th>RAM</th>
-                    <th>Sistema operativo</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% celulares.forEach(function(celular) { %>
-                    <tr>
-                        <td><%= celular.id %></td>
-                        <td><%= celular.marca %></td>
-                        <td><%= celular.modelo %></td>
-                        <td><%= celular.color %></td>
-                        <td><%= celular.precio %></td>
-                        <td><%= celular.capacidad_almacenamiento %> GB</td>
-                        <td><%= celular.ram %> GB</td>
-                        <td><%= celular.sistema_operativo %></td>
-                        <td>
-                            <a href="/eliminarid/<%= celular.id %>" class="btn-small blue darken-2">
-                                Eliminar
-                            </a>
-                        </td>
-                    </tr>
-                <% }); %>
-            </tbody>
-        </table>
+        <div>
+            <h5>Registro eliminado exitosamente, regresa a la pagina principal</h5>
+            <a a href="/" class="btn waves-effect waves-light blue darken-4 btn-small">
+                Pagina principal
+            </a>
+        </div>
+        
     </main>
 
     <footer class="page-footer blue darken-4">

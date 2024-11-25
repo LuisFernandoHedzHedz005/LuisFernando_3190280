@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-
+const queries = require('../config/querys');
 
 router.get('/', (req, res) => {
-    res.render('eliminar');
+    queries.getCelulares((results) => {
+        console.log('Resultados de celulares:', results);
+        res.render('eliminar', { celulares: results });
+    });
 });
 
 module.exports = router;

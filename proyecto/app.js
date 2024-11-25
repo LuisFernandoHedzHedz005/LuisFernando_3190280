@@ -5,8 +5,9 @@ const indexRouter = require('./routes/index');
 const agrgarRouter = require('./routes/agregar');
 const consultarRouter = require('./routes/consultar');
 const editarRouter = require('./routes/editar');
-const eliminarRouter = require('./routes/index');
-const editarid = require('./routes/editarid');
+const eliminarRouter = require('./routes/eliminar');
+const editaridRouter = require('./routes/editarid');
+const eliminaridRouter = require('./routes/eliminarid');
 const queries = require('./config/querys');
 
 const app = express();
@@ -24,7 +25,8 @@ app.use('/agregar', agrgarRouter);
 app.use('/consultar', consultarRouter);
 app.use('/editar', editarRouter);
 app.use('/eliminar', eliminarRouter);
-app.use('/editarid', editarid)
+app.use('/editarid', editaridRouter);
+app.use('/eliminarid', eliminaridRouter);
 
 app.post("/agregar", async (req,res) => {
 
@@ -52,68 +54,18 @@ app.post("/editarid/:id", async (req, res) => {
     }
 });
 
+app.get("/eliminarid/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        await queries.eliminarCelular(id);
+        res.redirect('/eliminarid');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar el registro');
+    }
+});
+
 app.listen(port, ()=>{
     console.log(`Servidor en funcionamiento desde http://localhost:${port}`)
 })
-
-/*
-app.get('/', (req, res)=>{
-    //consulta a la db
-    const query = 'SELECT * FROM Usuarios'
-    db.query(query,(err, results)=>{
-        if(err){
-            console.log(`error en db codigo: %¿${err}`);
-            res.send('Error en la conexion de la base de datos')
-        }else{
-            res.render('index',{user:results});
-        }
-    });
-})
-*/
-
-
-//Agregar usaurio
-
-/*
-app.post('/add',(res,req) =>{
-    const {nombre, email} = req.body;
-    const qyery = 'INSERT INTO users (nombre, email) VALUE (?,?)';
-    db.query(query, [nombre,email],(err)=>{
-        if(err){
-            console.log("error en agregar user")
-            res.send("error en agregar ususario")
-        }else{
-            res.redirect('/')
-        }
-    })
-})
-
-//editar ususario
-
-app.get('/edit/:id', (req,res)=>{
-    const {id} = req.params;
-    const query = 'SELECT * FROM Usuarios WHERE id = ?';
-    db.query(query, [id], (err,results)=>{
-        if(err){
-            res.send("Error al editar ususario");
-        }else{
-            res.render('edit', {user:results[0]})
-        }
-    });
-})
-
-//Eliminar ususario
-
-app.get('/delet/:id', (req, res)=>{
-    const {id} = req.params;
-    const query = 'DELETE FROM Usuarios WHERE id = ?'
-    db.query(query, [id], (err)=>{
-        if(err){
-            res.send("error al eliminar");
-        }else{
-            res.redirect('/');
-        }
-    });
-});
-
-*/
