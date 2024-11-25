@@ -1,0 +1,40 @@
+html, body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    margin-top: 60px;
+
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.card .card-image img {
+    height: 200px;
+    /* altura fija */
+    object-fit: cover;
+    /* mantiene la proporción sin distorsionar */
+}
+
+/* Para imágenes responsive */
+.card .card-image {
+    position: relative;
+    padding-top: 56.25%;
+    /* Ratio 16:9 */
+}
+
+.card .card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

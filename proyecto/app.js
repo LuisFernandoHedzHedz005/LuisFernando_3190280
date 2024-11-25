@@ -1,40 +1,35 @@
 const express = require('express');
-const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-const { query } = require('express');
+const path = require('path');
+const indexRouter = require('./routes/index');
+const agrgarRouter = require('./routes/agregar');
+const consultarRouter = require('./routes/consultar');
+const editarRouter = require('./routes/editar');
+const eliminarRouter = require('./routes/index');
+const queries = require('./config/querys');
 
 const app = express();
+const port = 3009;
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '1234',
-    database: 'node_crud',
-    port: 3306
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
-db.connect(error=>{
-    if(error){
-        console.log("error al conectar a la base de datos");
-    }else{
-        console.log("la base de datos funciona correctament");
-    }
-    
-})
-/*
-const port = 3090;
-app.listen(port, hostname, ()=>{
-    console.log(`Servidor en funcionamiento en http://${hostname}:${port}`)
-})
-*/
-const port = 3009;
+app.use('/', indexRouter);
+app.use('/agregar', agrgarRouter);
+app.use('/consultar', consultarRouter);
+app.use('/editar', editarRouter);
+app.use('/eliminar', eliminarRouter);
+
+
 app.listen(port, ()=>{
     console.log(`Servidor en funcionamiento desde http://localhost:${port}`)
 })
 
+/*
 app.get('/', (req, res)=>{
     //consulta a la db
     const query = 'SELECT * FROM Usuarios'
@@ -47,6 +42,8 @@ app.get('/', (req, res)=>{
         }
     });
 })
+*/
+
 
 //Agregar usaurio
 
