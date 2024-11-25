@@ -9,7 +9,7 @@ const eliminarRouter = require('./routes/index');
 const queries = require('./config/querys');
 
 const app = express();
-const port = 3009;
+const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -23,6 +23,20 @@ app.use('/agregar', agrgarRouter);
 app.use('/consultar', consultarRouter);
 app.use('/editar', editarRouter);
 app.use('/eliminar', eliminarRouter);
+
+app.post("/agregar", async (req,res) => {
+
+    const { marca, modelo, color, precio, capacidad_almacenamiento, ram, sistema_operativo } = req.body;
+
+        try {
+            await queries.agregarCelular(marca, modelo, color, precio, capacidad_almacenamiento, ram, sistema_operativo);
+            res.redirect('/');
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error al registrar los datos');
+        }
+});
+
 
 
 app.listen(port, ()=>{
@@ -47,6 +61,7 @@ app.get('/', (req, res)=>{
 
 //Agregar usaurio
 
+/*
 app.post('/add',(res,req) =>{
     const {nombre, email} = req.body;
     const qyery = 'INSERT INTO users (nombre, email) VALUE (?,?)';
@@ -87,3 +102,5 @@ app.get('/delet/:id', (req, res)=>{
         }
     });
 });
+
+*/

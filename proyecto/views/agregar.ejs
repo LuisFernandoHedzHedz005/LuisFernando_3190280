@@ -5,15 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD sobre celulares</title>
-    <!-- Materialize CSS y Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Tus estilos personalizados -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <!-- Navbar -->
     <nav class="blue darken-4">
         <div class="nav-wrapper container">
             <a href="/" class="brand-logo">CRUD sobre celulares</a>
@@ -23,11 +20,18 @@
     <main>
         <div class="container">
             <h3 class="center-align">Añadir un nuevo celular</h3>
-            <form action="/celulares/agregar" method="POST">
+            <form action="/agregar" method="post">
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input type="text" id="marca" name="marca" required>
-                        <label for="marca">Marca</label>
+                        <select id="marca" class="browser-default" name="marca">
+                            <option value="" disabled selected>Selecciona la marca</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Huawei">Huawei</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Realme">Realme</option>
+                            <option value="Google">Google</option>
+                            <option value="Xiaomi">Xiaomi</option>
+                        </select>
                     </div>
                     <div class="input-field col s12 m6">
                         <input type="text" id="modelo" name="modelo" required>
@@ -46,18 +50,34 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input type="number" id="capacidad_almacenamiento" name="capacidad_almacenamiento">
-                        <label for="capacidad_almacenamiento">Capacidad de almacenamiento (GB)</label>
+                        <select id="capacidad_almacenamiento" class="browser-default" name="capacidad_almacenamiento">
+                            <option value="" disabled selected>Selecciona el almacenamiento</option>
+                            <option value="32">32</option>
+                            <option value="64">64</option>
+                            <option value="128">128</option>
+                            <option value="256">256</option>
+                            <option value="512">512</option>
+                            <option value="1024">1024</option>
+                        </select>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input type="number" id="ram" name="ram">
-                        <label for="ram">Memoria RAM (GB)</label>
+                        <select id="ram" class="browser-default" name="ram">
+                            <option value="" disabled selected>Selecciona la memoria RAM</option>
+                            <option value="4">4</option>
+                            <option value="8">8</option>
+                            <option value="16">16</option>
+                            <option value="32">32</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input type="text" id="sistema_operativo" name="sistema_operativo">
-                        <label for="sistema_operativo">Sistema operativo</label>
+                    <div class="input-field col s12 m6">
+                        <select id="sistema_operativo" class="browser-default" name="sistema_operativo">
+                            <option value="" disabled selected>Selecciona el almacenamiento</option>
+                            <option value="Android">Android</option>
+                            <option value="IOS">IOS</option>
+                            <option value="HarmonyOS">HarmonyOS</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -71,7 +91,6 @@
             </form>
         </div>
     </main>
-    <!-- Footer -->
     <footer class="page-footer blue darken-4">
         <div class="container">
             <div class="row">
@@ -102,7 +121,6 @@
         </div>
     </footer>
 
-    <!-- Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD sobre celulares</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="blue darken-4">
+        <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">CRUD sobre celulares</a>
+        </div>
+    </nav>
+
+    <main>
+        <h3 class="center-align">Lista de celulares</h3>
+        <table class="highlight responsive-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Precio</th>
+                    <th>Capacidad de almacenamiento</th>
+                    <th>RAM</th>
+                    <th>Sistema operativo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% celulares.forEach(function(celular) { %>
+                    <tr>
+                        <td><%= celular.id %></td>
+                        <td><%= celular.marca %></td>
+                        <td><%= celular.modelo %></td>
+                        <td><%= celular.color %></td>
+                        <td><%= celular.precio %></td>
+                        <td><%= celular.capacidad_almacenamiento %> GB</td>
+                        <td><%= celular.ram %> GB</td>
+                        <td><%= celular.sistema_operativo %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </main>
+
+
+
+    <footer class="page-footer blue darken-4">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Acerca de...</h5>
+                    <p class="grey-text text-lighten-4">
+                        Está página fue fue creada con fines recreativos y educativos. Consiste en una pequeña implementación de un CRUD de celulares usando los conocimientos recibidos en la clase de programación web 2. Utilizamos Node.js, Express, ejs y mysql. Hecho por Luis Fernando Hernández Hernández del grupo 1758
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Marcas patrocinadas</h5>
+                    <ul>
+                        <li><a href="https://www.samsung.com/mx/" class="grey-text text-lighten-3">
+                            <i class="material-icons left">phone_android</i>Samsung
+                        </a></li>
+                        <li><a href="https://www.apple.com/mx/" class="grey-text text-lighten-3">
+                            <i class="material-icons left">phone_iphone</i>Apple
+                        </a></li>
+                        <li><a href="https://consumer.huawei.com/mx/" class="grey-text text-lighten-3">
+                            <i class="material-icons left">smartphone</i>Huawei
+                        </a></li>
+                        <li><a href="https://www.motorola.com.mx/" class="grey-text text-lighten-3">
+                            <i class="material-icons left">devices</i>Motorola
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
