@@ -6,6 +6,7 @@ const agrgarRouter = require('./routes/agregar');
 const consultarRouter = require('./routes/consultar');
 const editarRouter = require('./routes/editar');
 const eliminarRouter = require('./routes/index');
+const editarid = require('./routes/editarid');
 const queries = require('./config/querys');
 
 const app = express();
@@ -23,6 +24,7 @@ app.use('/agregar', agrgarRouter);
 app.use('/consultar', consultarRouter);
 app.use('/editar', editarRouter);
 app.use('/eliminar', eliminarRouter);
+app.use('/editarid', editarid)
 
 app.post("/agregar", async (req,res) => {
 
@@ -37,7 +39,18 @@ app.post("/agregar", async (req,res) => {
         }
 });
 
+app.post("/editarid/:id", async (req, res) => {
+    const { id } = req.params;
+    const { marca, modelo, color, precio, capacidad_almacenamiento, ram, sistema_operativo } = req.body;
 
+    try {
+        await queries.editarCelular(id, marca, modelo, color, precio, capacidad_almacenamiento, ram, sistema_operativo);
+        res.redirect('/');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar los datos');
+    }
+});
 
 app.listen(port, ()=>{
     console.log(`Servidor en funcionamiento desde http://localhost:${port}`)

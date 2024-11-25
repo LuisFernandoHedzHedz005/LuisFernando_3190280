@@ -8,13 +8,15 @@ const db = mysql.createConnection({
 });
 
 const sqlquery = async (sql, params) => {
-    try {
-        const [results] = await db.execute(sql, params);
-        return results;
-    } catch (err) {
-        console.error('Error en la consulta:', err);
-        throw err;
-    }
+    return new Promise((resolve, reject) => {
+        db.query(sql, params, (err, results) => {
+            if (err) {
+                console.error('Error en la consulta:', err);
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
 };
 
 module.exports = {

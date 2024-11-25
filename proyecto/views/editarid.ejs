@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD sobre celulares</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="blue darken-4">
+        <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">CRUD sobre celulares</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h3 class="center-align">Editar celular</h3>
+            <form action="/editarid/<%= celular.id %>" method="post">
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <select id="marca" class="browser-default" name="marca" required>
+                            <option value="" disabled>Selecciona la marca</option>
+                            <option value="Apple" <%= celular.marca === 'Apple' ? 'selected' : '' %>>Apple</option>
+                            <option value="Huawei" <%= celular.marca === 'Huawei' ? 'selected' : '' %>>Huawei</option>
+                            <option value="Samsung" <%= celular.marca === 'Samsung' ? 'selected' : '' %>>Samsung</option>
+                            <option value="Realme" <%= celular.marca === 'Realme' ? 'selected' : '' %>>Realme</option>
+                            <option value="Google" <%= celular.marca === 'Google' ? 'selected' : '' %>>Google</option>
+                            <option value="Xiaomi" <%= celular.marca === 'Xiaomi' ? 'selected' : '' %>>Xiaomi</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input type="text" id="modelo" name="modelo" value="<%= celular.modelo %>" required>
+                        <label for="modelo" class="active">Modelo</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input type="text" id="color" name="color" value="<%= celular.color %>">
+                        <label for="color" class="active">Color</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input type="number" step="0.01" id="precio" name="precio" value="<%= celular.precio %>" required>
+                        <label for="precio" class="active">Precio</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <select id="capacidad_almacenamiento" class="browser-default" name="capacidad_almacenamiento" required>
+                            <option value="" disabled>Selecciona el almacenamiento</option>
+                            <option value="32" <%= celular.capacidad_almacenamiento == 32 ? 'selected' : '' %>>32</option>
+                            <option value="64" <%= celular.capacidad_almacenamiento == 64 ? 'selected' : '' %>>64</option>
+                            <option value="128" <%= celular.capacidad_almacenamiento == 128 ? 'selected' : '' %>>128</option>
+                            <option value="256" <%= celular.capacidad_almacenamiento == 256 ? 'selected' : '' %>>256</option>
+                            <option value="512" <%= celular.capacidad_almacenamiento == 512 ? 'selected' : '' %>>512</option>
+                            <option value="1024" <%= celular.capacidad_almacenamiento == 1024 ? 'selected' : '' %>>1024</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <select id="ram" class="browser-default" name="ram" required>
+                            <option value="" disabled>Selecciona la memoria RAM</option>
+                            <option value="4" <%= celular.ram == 4 ? 'selected' : '' %>>4</option>
+                            <option value="8" <%= celular.ram == 8 ? 'selected' : '' %>>8</option>
+                            <option value="16" <%= celular.ram == 16 ? 'selected' : '' %>>16</option>
+                            <option value="32" <%= celular.ram == 32 ? 'selected' : '' %>>32</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <select id="sistema_operativo" class="browser-default" name="sistema_operativo" required>
+                            <option value="" disabled>Selecciona el sistema operativo</option>
+                            <option value="Android" <%= celular.sistema_operativo === 'Android' ? 'selected' : '' %>>Android</option>
+                            <option value="IOS" <%= celular.sistema_operativo === 'IOS' ? 'selected' : '' %>>IOS</option>
+                            <option value="HarmonyOS" <%= celular.sistema_operativo === 'HarmonyOS' ? 'selected' : '' %>>HarmonyOS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button class="btn waves-effect waves-light blue darken-4" type="submit">
+                            Guardar cambios
+                            <i class="material-icons right">save</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="page-footer blue darken-4">
+        <!-- Footer aquí -->
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
+
+
