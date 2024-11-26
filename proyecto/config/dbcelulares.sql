@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS celulares;
 CREATE DATABASE IF NOT EXISTS celulares;
 USE celulares;
-CREATE TABLE Celulares (
+CREATE TABLE celulares (
     id INT AUTO_INCREMENT PRIMARY KEY,
     marca VARCHAR(50) NOT NULL,
     modelo VARCHAR(50) NOT NULL,

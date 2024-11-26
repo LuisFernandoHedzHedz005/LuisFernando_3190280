@@ -66,6 +66,6 @@ app.get("/eliminarid/:id", async (req, res) => {
     }
 });
 
-app.listen(port, ()=>{
-    console.log(`Servidor en funcionamiento desde http://localhost:${port}`)
+app.listen(port, '0.0.0.0', ()=>{
+    console.log(`Servidor en funcionamiento desde http://192.168.50.134:${port}`)
 })
